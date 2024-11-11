@@ -7,7 +7,21 @@ Compliments Results
 {% block content %}
 
 <!-- Your HTML code goes here! -->
+<p>Hi {{name}}!</p>
 
+{% if wants_compliments == "yes" %}
+<h2>Compliments:</h2>
+<ul>
+{% for compliment in sampled_compliments %}
+    <li>
+        {{compliment}}
+    </li>
+{% endfor %}
+</ul>
+{% elif wants_compliments == "no" %}
+    <p>You opted out of receiving compliments.</p>
+{% else %}
+    <p>No compliments available. Please check your input.</p>
 
-
+{% endif %}
 {% endblock %}
